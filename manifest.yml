@@ -1,0 +1,8 @@
+---
+applications:
+ - name: GetNames
+   memory: 256M
+   instances: 1
+   env:
+      DBNAME: namesdb
+
