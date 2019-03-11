@@ -8,6 +8,7 @@ dbname: namesdb
 image:
   repository: us.icr.io/drsns/getnames
   tag: v1.0.0
+  pullSecret: regsecret
   pullPolicy: IfNotPresent
 
 service:
