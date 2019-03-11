@@ -40,12 +40,11 @@ spec:
           env:
             - name: DBNAME
               value: {{ .Values.dbname }}
-            - name: CLOUDANT_URL
+            - name: BINDING
               valueFrom:
                secretKeyRef:
-                  name: cloudant
-                  key: url
-                  optional: true
+                  name: binding-cloudant-getnames
+                  key: binding
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- with .Values.nodeSelector }}

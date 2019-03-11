@@ -107,6 +107,11 @@ if (appEnv.services['cloudantNoSQLDB']) {
   // Use the secret environment variable of deployed on Kubernetes
   cloudant = Cloudant(process.env.CLOUDANT_URL);
   uuid = process.env.HOSTNAME;
+} else if (process.env.BINDING) {
+  // get the binding environment variable
+  var binding = JSON.parse(process.env.BINDING);
+  cloudant = Cloudant(binding.url);
+  uuid = process.env.HOSTNAME;
 }
 
 if(cloudant) {
