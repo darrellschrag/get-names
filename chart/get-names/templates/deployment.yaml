@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: {{ template "helmchart.fullname" . }}
@@ -19,7 +19,7 @@ spec:
         app: {{ template "helmchart.name" . }}
         release: {{ .Release.Name }}
     spec:
-     imagePullSecrets:
+      imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}
       containers:
         - name: {{ .Chart.Name }}
