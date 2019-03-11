@@ -12,5 +12,5 @@ ENV PORT 8080
 ENV LD_LIBRARY_PATH /app/node_modules/appmetrics
 EXPOSE 8080
 
-WORKDIR "/app"
+WORKDIR /app
 CMD [ "npm", "start" ]
