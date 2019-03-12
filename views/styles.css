@@ -17,3 +17,8 @@ body {
 .helloInput {
   width: 300px;
 }
+
+p{
+    word-wrap: break-word;
+}
+
