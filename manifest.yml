@@ -3,6 +3,8 @@ applications:
  - name: GetNames
    memory: 256M
    instances: 1
+   services:
+   - Cloudant-getnames
    env:
       DBNAME: namesdb
 
