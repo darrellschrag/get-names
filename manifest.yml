@@ -5,6 +5,7 @@ applications:
    instances: 1
    services:
    - Cloudant-getnames
+   - Auto-Scaling-ds
    env:
       DBNAME: namesdb
 
