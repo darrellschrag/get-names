@@ -18,6 +18,13 @@ app.get("/api/gethost", function(request, response) {
    response.send(uuid);
 });
 
+/* Endpoint for health check
+   response is a simple json success
+*/
+app.get("api/health", function(request, response) {
+  response.json({status: 'UP'});
+}
+
 /* Endpoint to greet and add a new visitor to database.
 * Send a POST request to localhost:3000/api/visitors with body
 * {
