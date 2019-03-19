@@ -23,7 +23,7 @@ app.get("/api/gethost", function(request, response) {
 */
 app.get("api/health", function(request, response) {
   response.json({status: 'UP'});
-}
+});
 
 /* Endpoint to greet and add a new visitor to database.
 * Send a POST request to localhost:3000/api/visitors with body
