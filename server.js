@@ -21,7 +21,7 @@ app.get("/api/gethost", function(request, response) {
 /* Endpoint for health check
    response is a simple json success
 */
-app.get("api/health", function(request, response) {
+app.get("/api/health", function(request, response) {
   response.json({status: 'UP'});
 });
 
