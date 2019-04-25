@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: glb-ingress
+  labels:
+    app: get-names
+spec:
+ rules:
+ - host: mysite.drsdemo.com
+   http:
+     paths:
+       - path: /
+         backend:
+           serviceName: get-names
+           servicePort: 80
