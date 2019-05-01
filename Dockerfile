@@ -1,4 +1,4 @@
-FROM node:6-alpine
+FROM node:6.16.0-alpine
 
 RUN apk add --no-cache --virtual run-dependencies --update libc6-compat
 
