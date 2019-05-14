@@ -2,9 +2,9 @@ FROM node:6.16.0-alpine
 
 RUN apk add --no-cache --virtual run-dependencies --update libc6-compat
 
-ADD views /app/views
-ADD package.json /app
-ADD server.js /app
+COPY views /app/views
+COPY package.json /app
+COPY server.js /app
 
 RUN cd /app; npm install
 
