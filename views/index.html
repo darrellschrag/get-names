@@ -103,8 +103,8 @@
             console.log("get host");
             $.getJSON("./api/gethost")
                 .done(function(data) {
-                   $('#hostname').html(AntiXSS.sanitizeInput(data.uuid));
-                   $('#app-version').html(AntiXSS.sanitizeInput(data.version));
+                   $('#app-version').html("Build version: " + AntiXSS.sanitizeInput(data.version));
+                   $('#hostname').html("Pod name: " + AntiXSS.sanitizeInput(data.uuid));
                 });
         }
 
