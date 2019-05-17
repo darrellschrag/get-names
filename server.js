@@ -3,19 +3,21 @@ var express = require("express");
 var app = express();
 var cfenv = require("cfenv");
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
-var cloudant, mydb, uuid;
+var cloudant, mydb, uuid, version;
 
 /* Endpoint to get a unique identifier of the pod and/or CF instance.
+* also included in the json response is the contents of the VERSION file
 * Send a GET request to localhost:3000/api/gethost
 */
 app.get("/api/gethost", function(request, response) {
-   response.send(uuid);
+   response.json({uuid: uuid,version: version});
 });
 
 /* Endpoint for health check
@@ -119,6 +121,8 @@ if (appEnv.services['cloudantNoSQLDB']) {
   var binding = JSON.parse(process.env.BINDING);
   cloudant = Cloudant(binding.url);
   uuid = process.env.HOSTNAME;
+} else {
+  uuid = 'cloudant connect string not found';
 }
 
 if(cloudant) {
@@ -155,6 +159,12 @@ if(cloudant) {
     }
   });
 }
+
+// read the version file and store the contents in the version variable
+fs.readFile('VERSION', 'utf8', function(err, contents) {
+  // console.log(contents);
+  version = contents;
+});
 
 //serve static file (index.html, images, css)
 app.use(express.static(__dirname + '/views'));

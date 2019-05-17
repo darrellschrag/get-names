@@ -53,6 +53,7 @@
 <body>
     <div class="container" id="container">
         <h1 data-i18n="welcome"></h1> <!-- Welcome -->
+        <h4 id="app-version"></h4>
         <h4 id="hostname"></h4>
         <div id="nameInput" class="input-group-lg center-block helloInput" style="visibility: hidden">
             <p class="lead" data-i18n="what_is_your_name"></p>
@@ -99,9 +100,11 @@
 
         //Retrieve the hostname
         function getHost(){
-            $.get("./api/gethost")
+            console.log("get host");
+            $.getJSON("./api/gethost")
                 .done(function(data) {
-                   $('#hostname').html(AntiXSS.sanitizeInput(data));
+                   $('#hostname').html(AntiXSS.sanitizeInput(data.uuid));
+                   $('#app-version').html(AntiXSS.sanitizeInput(data.version));
                 });
         }
 
