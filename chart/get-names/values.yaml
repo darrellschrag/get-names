@@ -7,7 +7,7 @@ dbname: namesdb
 
 image:
   repository: us.icr.io/drsns/getnames
-  tag: 52-master-cedb4e0e-20190321195849
+  tag: v99
   pullSecret: regsecret
   pullPolicy: IfNotPresent
 
