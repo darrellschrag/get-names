@@ -19,7 +19,7 @@ spec:
       - name: ibmcloud-registry-pull
       containers:
       - name: get-names
-        image: ${IMAGE}
+        image: ${PIPELINE_IMAGE_URL}
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
