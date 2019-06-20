@@ -1,4 +1,3 @@
-var as_agent = require('bluemix-autoscaling-agent');
 var express = require("express");
 var app = express();
 var cfenv = require("cfenv");
