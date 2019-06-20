@@ -1,6 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "helmchart.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
+{{- $servicePort := .Values.ingress.servicePort -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -33,6 +34,6 @@ spec:
           - path: {{ $ingressPath }}
             backend:
               serviceName: {{ $fullName }}
-              servicePort: http
+              servicePort: {{ $servicePort }}
   {{- end }}
 {{- end }}

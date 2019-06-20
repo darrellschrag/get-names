@@ -7,28 +7,22 @@ dbname: namesdb
 
 image:
   repository: us.icr.io/drsns/getnames
-  tag: v1.0.0
+  tag: 52-master-cedb4e0e-20190321195849
   pullSecret: regsecret
   pullPolicy: IfNotPresent
 
 service:
   name: get-names
-  type: LoadBalancer
+  type: ClusterIP
   externalPort: 8080
-  internalPort: 8080
+  internalPort: 80
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  enabled: true
   path: /
+  servicePort: 80
   hosts:
-    - chart-example.local
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    - mysite.drsdemo.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
